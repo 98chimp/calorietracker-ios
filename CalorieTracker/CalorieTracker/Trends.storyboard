@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mAn-3L-tcz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trends-->
+        <scene sceneID="HfO-kd-txV">
+            <objects>
+                <viewController title="Trends" id="jgx-y8-7zE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ea1-cY-H4z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-Ya-fhN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="7 Days"/>
+                                    <segment title="30 Days"/>
+                                </segments>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="top" secondItem="6h5-9s-d7d" secondAttribute="top" id="cu7-aS-eww"/>
+                            <constraint firstItem="6h5-9s-d7d" firstAttribute="trailing" secondItem="hZg-Ya-fhN" secondAttribute="trailing" id="dhg-f6-zZg"/>
+                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="leading" secondItem="6h5-9s-d7d" secondAttribute="leading" id="oXc-zq-GQm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6h5-9s-d7d"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trends" id="kN7-1j-gCo">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="chart" id="J8j-JQ-LkO"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Im3-Qt-1En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3101.449275362319" y="386.38392857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gyG-IP-Axg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mAn-3L-tcz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="trends" selectedImage="trends-selected" id="TbT-th-89C"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JPa-pN-ude">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jgx-y8-7zE" kind="relationship" relationship="rootViewController" id="DAL-GY-CMs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dj5-yn-sI0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191.304347826087" y="386.38392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chart" width="25" height="25"/>
+        <image name="trends" width="31" height="31"/>
+        <image name="trends-selected" width="31" height="31"/>
+    </resources>
+</document>
