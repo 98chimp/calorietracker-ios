@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cdo-xR-jbI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,10 +15,24 @@
                     <view key="view" contentMode="scaleToFill" id="NfF-1v-iPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started by adding your favourite food items… one at a time!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPA-lY-Z3v">
+                                <rect key="frame" x="79" y="305" width="256.5" height="286.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tPA-lY-Z3v" firstAttribute="centerY" secondItem="NfF-1v-iPz" secondAttribute="centerY" id="0Bb-WS-m1M"/>
+                            <constraint firstItem="tPA-lY-Z3v" firstAttribute="centerX" secondItem="NfF-1v-iPz" secondAttribute="centerX" id="byJ-Ed-lrb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C0a-Md-Z2s"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Foods" id="91S-1Z-9RN"/>
+                    <navigationItem key="navigationItem" title="Foods" id="91S-1Z-9RN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Nc-5m-mTW"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJh-lC-TvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="foods" width="52" height="52"/>
-        <image name="foods-selected" width="51" height="50"/>
+        <image name="foods" width="32" height="32"/>
+        <image name="foods-selected" width="31" height="30"/>
     </resources>
 </document>
