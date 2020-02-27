@@ -19,6 +19,7 @@
 		EB07B53A24064213002FBE11 /* Trends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B53924064213002FBE11 /* Trends.storyboard */; };
 		EB07B53C24079D1B002FBE11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53B24079D1B002FBE11 /* Extensions.swift */; };
 		EB07B53E24079D55002FBE11 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53D24079D55002FBE11 /* PersistenceManager.swift */; };
+		EB5AC8EC2407BE4D00FA2982 /* LargeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EB07B53924064213002FBE11 /* Trends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trends.storyboard; sourceTree = "<group>"; };
 		EB07B53B24079D1B002FBE11 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EB07B53D24079D55002FBE11 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				EB07B50224063F86002FBE11 /* AppDelegate.swift */,
 				EB07B53B24079D1B002FBE11 /* Extensions.swift */,
 				EB07B53D24079D55002FBE11 /* PersistenceManager.swift */,
+				EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */,
 				EB07B50824063F86002FBE11 /* Main.storyboard */,
 				EB07B535240641F2002FBE11 /* Foods.storyboard */,
 				EB07B53724064205002FBE11 /* Today.storyboard */,
@@ -276,6 +279,7 @@
 			files = (
 				EB07B50324063F86002FBE11 /* AppDelegate.swift in Sources */,
 				EB07B53C24079D1B002FBE11 /* Extensions.swift in Sources */,
+				EB5AC8EC2407BE4D00FA2982 /* LargeLabel.swift in Sources */,
 				EB07B50D24063F86002FBE11 /* CalorieTracker.xcdatamodeld in Sources */,
 				EB07B53E24079D55002FBE11 /* PersistenceManager.swift in Sources */,
 			);
