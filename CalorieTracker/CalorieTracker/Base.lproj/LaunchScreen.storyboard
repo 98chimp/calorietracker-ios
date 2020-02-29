@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="wzS-f8-l4T">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                                <rect key="frame" x="52" y="293" width="310.5" height="310.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wzS-f8-l4T" secondAttribute="height" multiplier="1:1" id="drf-xK-hGU"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                         <color key="backgroundColor" name="CoreBlue"/>
                         <constraints>
                             <constraint firstItem="wzS-f8-l4T" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="biy-V7-fCw"/>
-                            <constraint firstItem="wzS-f8-l4T" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.57971" id="iRT-G9-bsW"/>
+                            <constraint firstItem="wzS-f8-l4T" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.75" id="iRT-G9-bsW"/>
                             <constraint firstItem="wzS-f8-l4T" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="yiR-aC-cuz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

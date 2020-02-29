@@ -14,18 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupAppearance()
+        configureAppearance()
         return true
     }
     
-    private func setupAppearance() {
-        UINavigationBar.appearance().tintColor = .coreBlue
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+    private func configureAppearance() {
         if #available(iOS 13, *) {
             UISegmentedControl.appearance().selectedSegmentTintColor = .coreBlue
         }
         else {
             UISegmentedControl.appearance().tintColor = .coreBlue
         }
+        UINavigationBar.appearance().tintColor = .coreBlue
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .coreBlue
     }
 }

@@ -11,11 +11,13 @@ import CoreData
 class PersistenceManager {
     
     static let shared = PersistenceManager()
-    private let entityName = "Food"
-    private let containerName = "CalorieTracker"
+    
+    var conetext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CalorieTracker")
+        let container = NSPersistentContainer(name: Constants.Persistence.contextName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
@@ -36,17 +38,18 @@ class PersistenceManager {
         }
     }
     
-    func delete(food: NSManagedObject) {
+    func delete(_ food: NSManagedObject) {
         let context = persistentContainer.viewContext
         context.delete(food)
+        saveContext()
     }
     
-    func retrieveAllFoods() -> [NSManagedObject] {
-        let emptyFoods = [NSManagedObject]()
+    func retrieveAllFoods() -> [Food] {
+        let emptyFoods = [Food]()
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.Persistence.entityName)
         do {
-            guard let foods = try context.fetch(fetchRequest) as? [NSManagedObject] else { return emptyFoods }
+            guard let foods = try context.fetch(fetchRequest) as? [Food] else { return emptyFoods }
             return foods
         }
         catch {

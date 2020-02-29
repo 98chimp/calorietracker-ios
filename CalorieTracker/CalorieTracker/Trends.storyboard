@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-Ya-fhN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <rect key="frame" x="10" y="88" width="394" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="7 Days"/>
@@ -43,8 +43,8 @@ the trends here!</string>
                             <constraint firstItem="OBF-tM-9uP" firstAttribute="centerX" secondItem="ea1-cY-H4z" secondAttribute="centerX" id="6ad-b1-jZb"/>
                             <constraint firstItem="OBF-tM-9uP" firstAttribute="centerY" secondItem="ea1-cY-H4z" secondAttribute="centerY" id="ERo-Ca-mUz"/>
                             <constraint firstItem="hZg-Ya-fhN" firstAttribute="top" secondItem="6h5-9s-d7d" secondAttribute="top" id="cu7-aS-eww"/>
-                            <constraint firstItem="6h5-9s-d7d" firstAttribute="trailing" secondItem="hZg-Ya-fhN" secondAttribute="trailing" id="dhg-f6-zZg"/>
-                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="leading" secondItem="6h5-9s-d7d" secondAttribute="leading" id="oXc-zq-GQm"/>
+                            <constraint firstItem="6h5-9s-d7d" firstAttribute="trailing" secondItem="hZg-Ya-fhN" secondAttribute="trailing" constant="10" id="dhg-f6-zZg"/>
+                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="leading" secondItem="6h5-9s-d7d" secondAttribute="leading" constant="10" id="oXc-zq-GQm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6h5-9s-d7d"/>
                     </view>

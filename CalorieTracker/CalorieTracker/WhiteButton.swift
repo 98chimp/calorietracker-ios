@@ -1,5 +1,5 @@
 //
-//  LargeLabel.swift
+//  WhiteButton.swift
 //  CalorieTracker
 //
 //  Created by Shahin on 2020-02-27.
@@ -9,19 +9,20 @@
 import UIKit
 
 @IBDesignable
-class LargeLabel: UILabel {
+class WhiteButton: UIButton {
     public override func awakeFromNib() {
         super.awakeFromNib()
-        configureLabel()
+        configureButton()
     }
     
     public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        configureLabel()
+        configureButton()
     }
-
-    private func configureLabel() {
-        textColor = .coreGray
-        font = UIFont.systemFont(ofSize: 48, weight: .ultraLight)
+    
+    private func configureButton() {
+        tintColor = .coreBlue
+        backgroundColor = .white
+        alpha = 0.75
     }
 }
