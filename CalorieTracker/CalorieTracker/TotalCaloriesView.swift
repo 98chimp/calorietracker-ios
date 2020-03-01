@@ -11,10 +11,17 @@ import UIKit
 class TotalCaloriesView: UIView {
 
     @IBOutlet var totalCaloriesLabel: LargeLabel!
+    @IBOutlet var dayLabel: UILabel?
     
     var totalCalories: Double = 0 {
         didSet {
             totalCaloriesLabel.text = String(format: "%0.f", totalCalories)
+        }
+    }
+    
+    var trendDate: Date = Date() {
+        didSet {
+            dayLabel?.text = trendDate.shortDateString
         }
     }
 }

@@ -10,11 +10,19 @@ import UIKit
 
 class TodayViewController: BaseViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var todayTableView: UITableView!
     @IBOutlet weak var totalCaloriesView: TotalCaloriesView!
     
+    // MARK: - Properties
+    var trend: Trend?
     override var foods: [Food] {
-        return FoodDataSource.shared.todayFoods
+        switch displayMode {
+        case .presenting:
+            return FoodDataSource.shared.todayFoods
+        case .presented:
+            return FoodDataSource.shared.allFoods(for: trend?.date ?? Date())
+        }
     }
     
     // MARK: - Overrides
@@ -28,23 +36,32 @@ class TodayViewController: BaseViewController {
         todayTableView.isHidden = foods.isEmpty
         todayTableView.allowsSelection = false
         todayTableView.rowHeight = UITableView.automaticDimension
-        totalCaloriesView.totalCalories = FoodDataSource.shared.totalTodayCalories
+        foods.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
+        
+        if let trend = trend, displayMode == .presented {
+            title = trend.date.shortDateString
+            totalCaloriesView.totalCalories = trend.calories
+            emptyStateLabel.text = "Nothing to show\n\n😊"
+        }
+        else {
+            totalCaloriesView.totalCalories = FoodDataSource.shared.totalTodayCalories
+        }
     }
     
     override func registerCells() {
         super.registerCells()
-        todayTableView.register(UINib(nibName: Constants.Identifiers.Cells.foodCellNib, bundle: nil),
-                                forCellReuseIdentifier: Constants.Identifiers.Cells.foodCell)
+        todayTableView.register(UINib(nibName: Constant.Identifier.Cell.foodCellNib, bundle: nil),
+                                forCellReuseIdentifier: Constant.Identifier.Cell.foodCell)
     }
     
     override func configureBarButtons() {
         switch displayMode {
-        case .presentation:
+        case .presenting:
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                 target: self,
                                                                 action: #selector(addButtonTapped))
             
-        case .selection:
+        case .presented:
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                                target: self,
                                                                action: #selector(cancelButtonTapped))
@@ -53,10 +70,10 @@ class TodayViewController: BaseViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Identifiers.Segues.toFoods {
+        if segue.identifier == Constant.Identifier.Segue.toFoods {
             let destinationVC = segue.destination as? UINavigationController
             let foodsVC = destinationVC?.viewControllers.first as? FoodsViewController
-            foodsVC?.displayMode = .selection
+            foodsVC?.displayMode = .presented
         }
     }
     
@@ -68,7 +85,7 @@ class TodayViewController: BaseViewController {
     
     @objc
     func addButtonTapped() {
-        performSegue(withIdentifier: Constants.Identifiers.Segues.toFoods, sender: nil)
+        performSegue(withIdentifier: Constant.Identifier.Segue.toFoods, sender: nil)
     }
 }
 
@@ -79,7 +96,7 @@ extension TodayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let foodCell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.Cells.foodCell, for: indexPath) as? FoodTableViewCell else { return UITableViewCell() }
+        guard let foodCell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.Cell.foodCell, for: indexPath) as? FoodTableViewCell else { return UITableViewCell() }
         foodCell.configure(with: foods[indexPath.row])
         
         return foodCell
@@ -89,13 +106,16 @@ extension TodayViewController: UITableViewDataSource {
 extension TodayViewController: UITableViewDelegate, FoodRemovable {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let food = foods[indexPath.row]
-        let addAction = UIContextualAction(style: .normal, title: "Remove") { [weak self] (_, _, completion) in
-            self?.removeFoodsFromToday([food])
-            completion(true)
+        if displayMode == .presenting {
+            let food = foods[indexPath.row]
+            let addAction = UIContextualAction(style: .normal, title: "Remove") { [weak self] (_, _, completion) in
+                self?.removeFoodsFromToday([food])
+                completion(true)
+            }
+            
+            addAction.backgroundColor = .coreOrange
+            return UISwipeActionsConfiguration(actions: [addAction])
         }
-        
-        addAction.backgroundColor = .coreOrange
-        return UISwipeActionsConfiguration(actions: [addAction])
+        return nil
     }
 }

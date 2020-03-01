@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Constants {
-    struct Alerts {
-        struct Titles {
+struct Constant {
+    struct Alert {
+        struct Title {
             static let attention = "You are about to permanently delete a food from your list"
             
-            struct Actions {
+            struct Action {
                 static let cancel = "Cancel"
                 static let ok = "Okay"
                 static let addFoodToToday = "Add Food to Today"
@@ -25,24 +25,24 @@ struct Constants {
             }
         }
         
-        struct Messages {
+        struct Message {
             static let photoSelection = "How would you like to add a photo?"
             static let makeSelection = "Please make your selection."
         }
     }
     
-    struct ButtonTitles {
+    struct ButtonTitle {
         static let change = "Change"
     }
     
-    struct Identifiers {
-            struct Segues {
+    struct Identifier {
+            struct Segue {
             static let toNewFood = "toNewFood"
             static let toFoods = "toFoods"
             static let toToday = "toToday"
         }
         
-        struct Cells {
+        struct Cell {
             static let foodCell = "foodCell"
             static let foodCellNib = "FoodTableViewCell"
             static let todayCell = "todayCell"
@@ -51,12 +51,23 @@ struct Constants {
         }
     }
     
-    struct ImageNames {
+    struct ImageName {
         static let placeholder = "placeholder"
     }
     
     struct Persistence {
         static let contextName = "CalorieTracker"
         static let entityName = "Food"
+    }
+    
+    struct Storyboard {
+        static let main = "Main"
+        static let foods = "Foods"
+        static let today = "Today"
+        static let trends = "Trends"
+    }
+    
+    struct ViewController {
+        
     }
 }

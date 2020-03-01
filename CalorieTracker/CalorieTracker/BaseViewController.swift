@@ -9,8 +9,8 @@
 import UIKit
 
 enum DisplayMode {
-    case presentation
-    case selection
+    case presenting
+    case presented
 }
 
 protocol FoodRemovable {
@@ -27,9 +27,13 @@ extension FoodRemovable {
 class BaseViewController: UIViewController {
 
     // MARK: - Properties
-    var displayMode = DisplayMode.presentation
+    var displayMode = DisplayMode.presenting
+    var selectedIndexPath = IndexPath()
     var foods: [Food] {
         return [Food]()
+    }
+    var trends: [Trend] {
+        return [Trend]()
     }
     
     // MARK: - Outlets
@@ -43,8 +47,8 @@ class BaseViewController: UIViewController {
         configureBarButtons()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureView()
     }
     
@@ -69,14 +73,14 @@ class BaseViewController: UIViewController {
     }
 
     func configureView() {
-        foods.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
+        // implement in subclass
     }
 
     func dismiss() {
         dismiss(animated: true, completion: nil)
     }
 
-    private func addEmptyStateLabel() {
+    func addEmptyStateLabel() {
         emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(emptyStateLabel)
         NSLayoutConstraint.activate(
@@ -85,7 +89,7 @@ class BaseViewController: UIViewController {
         )
     }
     
-    private func removeEmptyStateLabel() {
+    func removeEmptyStateLabel() {
         view.removeConstraints(emptyStateLabel.constraints)
         emptyStateLabel.removeFromSuperview()
     }

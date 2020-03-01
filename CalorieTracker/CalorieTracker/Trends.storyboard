@@ -4,20 +4,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Trends-->
         <scene sceneID="HfO-kd-txV">
             <objects>
-                <viewController title="Trends" id="jgx-y8-7zE" sceneMemberID="viewController">
+                <viewController title="Trends" id="jgx-y8-7zE" customClass="TrendsViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ea1-cY-H4z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-Ya-fhN">
-                                <rect key="frame" x="10" y="88" width="394" height="32"/>
+                                <rect key="frame" x="10" y="98" width="394" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="7 Days"/>
@@ -25,36 +27,198 @@
                                 </segments>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="trendSelectorTapped:" destination="jgx-y8-7zE" eventType="valueChanged" id="CZH-hU-16w"/>
+                                </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBF-tM-9uP" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
-                                <rect key="frame" x="57.5" y="305" width="299" height="286.5"/>
-                                <string key="text">As you add the
-foods that you
-consume each
-day, you will see
-the trends here!</string>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="48"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g01-Hj-95Y">
+                                <rect key="frame" x="0.0" y="139" width="414" height="737"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="evO-Wk-nl8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trendLargeCell" id="6zl-S3-1hW" customClass="TrendCollectionViewCell" customModule="CalorieTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.5" y="0.0" width="413" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CsQ-rN-XRw">
+                                            <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8e7-mk-xdD" customClass="TotalCaloriesView" customModule="CalorieTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+                                                    <subviews>
+                                                        <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hs-pc-nP0">
+                                                            <rect key="frame" x="20" y="85" width="393" height="1"/>
+                                                            <color key="backgroundColor" name="CoreGray"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="A1d-kF-iD0"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPk-dR-z5H">
+                                                            <rect key="frame" x="20" y="34" width="63" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckH-IP-nIQ" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
+                                                            <rect key="frame" x="346" y="19" width="23.5" height="48"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07V-cd-8BY">
+                                                            <rect key="frame" x="372" y="41" width="21" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="jPk-dR-z5H" firstAttribute="bottom" secondItem="ckH-IP-nIQ" secondAttribute="bottom" constant="-4" id="0JC-RG-lc1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="07V-cd-8BY" secondAttribute="trailing" constant="20" id="2J6-ty-v7H"/>
+                                                        <constraint firstItem="jPk-dR-z5H" firstAttribute="leading" secondItem="8e7-mk-xdD" secondAttribute="leading" constant="20" id="6gY-Ng-VpA"/>
+                                                        <constraint firstAttribute="height" constant="84" id="8m2-2g-pMC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8hs-pc-nP0" secondAttribute="trailing" id="F2v-lF-Sh7"/>
+                                                        <constraint firstItem="07V-cd-8BY" firstAttribute="leading" secondItem="ckH-IP-nIQ" secondAttribute="trailing" constant="2.5" id="a6c-Qi-ICp"/>
+                                                        <constraint firstItem="07V-cd-8BY" firstAttribute="bottom" secondItem="ckH-IP-nIQ" secondAttribute="bottom" constant="-5" id="eZb-Hc-VfJ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8hs-pc-nP0" secondAttribute="bottom" id="fmh-Qu-9AK"/>
+                                                        <constraint firstItem="8hs-pc-nP0" firstAttribute="leading" secondItem="8e7-mk-xdD" secondAttribute="leading" constant="20" id="h65-5D-jus"/>
+                                                        <constraint firstItem="ckH-IP-nIQ" firstAttribute="centerY" secondItem="8e7-mk-xdD" secondAttribute="centerY" id="ihb-Kg-WK0"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="dayLabel" destination="jPk-dR-z5H" id="VIz-ZU-rmP"/>
+                                                        <outlet property="totalCaloriesLabel" destination="ckH-IP-nIQ" id="wPc-bu-n5b"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8e7-mk-xdD" firstAttribute="leading" secondItem="CsQ-rN-XRw" secondAttribute="leading" id="JBO-KT-2fL"/>
+                                                <constraint firstAttribute="trailing" secondItem="8e7-mk-xdD" secondAttribute="trailing" id="VfD-gC-sdK"/>
+                                                <constraint firstAttribute="bottom" secondItem="8e7-mk-xdD" secondAttribute="bottom" id="bQY-vC-8Bq"/>
+                                                <constraint firstItem="8e7-mk-xdD" firstAttribute="top" secondItem="CsQ-rN-XRw" secondAttribute="top" id="mEV-9k-bGk"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="413" height="86"/>
+                                        <connections>
+                                            <outlet property="totalCaloriesView" destination="8e7-mk-xdD" id="6DP-HT-UOf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trendSmallCell" id="pu1-OK-zeS" customClass="ThirdyDayTrendCollectionViewCell" customModule="CalorieTracker" customModuleProvider="target">
+                                        <rect key="frame" x="168.5" y="96" width="77" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="t90-2k-Cxl">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzV-dj-TAQ" customClass="TotalCaloriesView" customModule="CalorieTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="80"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-RD-75E">
+                                                            <rect key="frame" x="0.0" y="79" width="413" height="1"/>
+                                                            <color key="backgroundColor" name="CoreBlue"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="wU7-Vl-n27"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtl-gb-rJn">
+                                                            <rect key="frame" x="4.5" y="8" width="68" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUh-Rc-Bg8">
+                                                            <rect key="frame" x="29" y="28" width="19" height="38.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="QUh-Rc-Bg8" firstAttribute="top" secondItem="Jtl-gb-rJn" secondAttribute="bottom" constant="2" id="CAw-fD-Zfz"/>
+                                                        <constraint firstItem="Jtl-gb-rJn" firstAttribute="centerX" secondItem="CzV-dj-TAQ" secondAttribute="centerX" id="D6B-vM-q6m"/>
+                                                        <constraint firstItem="Jtl-gb-rJn" firstAttribute="top" secondItem="CzV-dj-TAQ" secondAttribute="top" constant="8" id="HrC-wa-b5V"/>
+                                                        <constraint firstAttribute="height" constant="84" id="JEh-Q9-lMb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bPN-RD-75E" secondAttribute="bottom" id="U6A-Pr-2HU"/>
+                                                        <constraint firstItem="QUh-Rc-Bg8" firstAttribute="centerX" secondItem="Jtl-gb-rJn" secondAttribute="centerX" id="bxJ-zR-GkS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bPN-RD-75E" secondAttribute="trailing" constant="-336" id="dyB-dl-HmU"/>
+                                                        <constraint firstItem="bPN-RD-75E" firstAttribute="leading" secondItem="CzV-dj-TAQ" secondAttribute="leading" id="sO3-xT-GtN"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="dayLabel" destination="Jtl-gb-rJn" id="qY0-0n-YYW"/>
+                                                        <outlet property="totalCaloriesLabel" destination="QUh-Rc-Bg8" id="9ZL-PS-bVr"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CzV-dj-TAQ" firstAttribute="leading" secondItem="t90-2k-Cxl" secondAttribute="leading" id="Ebz-wb-7Vp"/>
+                                                <constraint firstAttribute="bottom" secondItem="CzV-dj-TAQ" secondAttribute="bottom" id="ku3-ro-UYU"/>
+                                                <constraint firstItem="CzV-dj-TAQ" firstAttribute="top" secondItem="t90-2k-Cxl" secondAttribute="top" id="lru-bi-Cwa"/>
+                                                <constraint firstAttribute="trailing" secondItem="CzV-dj-TAQ" secondAttribute="trailing" id="ooe-MM-NVR"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="77" height="80"/>
+                                        <connections>
+                                            <outlet property="totalCaloriesView" destination="CzV-dj-TAQ" id="lvg-VM-2Qs"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="jgx-y8-7zE" id="0tR-bo-dfi"/>
+                                    <outlet property="delegate" destination="jgx-y8-7zE" id="Gcj-PA-7GD"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OBF-tM-9uP" firstAttribute="centerX" secondItem="ea1-cY-H4z" secondAttribute="centerX" id="6ad-b1-jZb"/>
-                            <constraint firstItem="OBF-tM-9uP" firstAttribute="centerY" secondItem="ea1-cY-H4z" secondAttribute="centerY" id="ERo-Ca-mUz"/>
-                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="top" secondItem="6h5-9s-d7d" secondAttribute="top" id="cu7-aS-eww"/>
+                            <constraint firstItem="g01-Hj-95Y" firstAttribute="trailing" secondItem="6h5-9s-d7d" secondAttribute="trailing" id="XxM-va-hkR"/>
+                            <constraint firstAttribute="bottom" secondItem="g01-Hj-95Y" secondAttribute="bottom" constant="20" symbolic="YES" id="ah4-Vj-bXV"/>
+                            <constraint firstItem="hZg-Ya-fhN" firstAttribute="top" secondItem="6h5-9s-d7d" secondAttribute="top" constant="10" id="cu7-aS-eww"/>
                             <constraint firstItem="6h5-9s-d7d" firstAttribute="trailing" secondItem="hZg-Ya-fhN" secondAttribute="trailing" constant="10" id="dhg-f6-zZg"/>
+                            <constraint firstItem="g01-Hj-95Y" firstAttribute="top" secondItem="hZg-Ya-fhN" secondAttribute="bottom" constant="10" id="euA-fH-tpQ"/>
                             <constraint firstItem="hZg-Ya-fhN" firstAttribute="leading" secondItem="6h5-9s-d7d" secondAttribute="leading" constant="10" id="oXc-zq-GQm"/>
+                            <constraint firstItem="g01-Hj-95Y" firstAttribute="leading" secondItem="6h5-9s-d7d" secondAttribute="leading" id="vqd-K5-ACJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6h5-9s-d7d"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trends" id="kN7-1j-gCo">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="chart" id="J8j-JQ-LkO"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emptyStateLabel" destination="OBF-tM-9uP" id="AYK-oY-vcB"/>
+                        <outlet property="trendSelector" destination="hZg-Ya-fhN" id="MG9-4u-iiq"/>
+                        <outlet property="trendsCollectionView" destination="g01-Hj-95Y" id="U6H-FN-Poe"/>
+                        <segue destination="NbX-6L-EDh" kind="presentation" identifier="toToday" id="Nsj-ew-QUQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im3-Qt-1En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OBF-tM-9uP" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="250.5" height="239"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <string key="text">As you add the
+foods that you
+consume each
+day, you will see
+the trends here!</string>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="48"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </objects>
             <point key="canvasLocation" x="3101.449275362319" y="386.38392857142856"/>
+        </scene>
+        <!--Today-->
+        <scene sceneID="e6g-0j-z1h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Today" id="NbX-6L-EDh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4w-ha-xUR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3914" y="386"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyG-IP-Axg">
@@ -80,5 +244,11 @@ the trends here!</string>
         <image name="chart" width="25" height="25"/>
         <image name="trends" width="31" height="31"/>
         <image name="trends-selected" width="31" height="31"/>
+        <namedColor name="CoreBlue">
+            <color red="0.11400000005960464" green="0.63099998235702515" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CoreGray">
+            <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

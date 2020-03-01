@@ -17,18 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-vL-SSS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-vL-SSS" customClass="TotalCaloriesView" customModule="CalorieTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="84"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-2b-IG8" customClass="TotalCaloriesView" customModule="CalorieTracker" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-2b-IG8">
                                         <rect key="frame" x="0.0" y="83" width="414" height="1"/>
                                         <color key="backgroundColor" name="CoreBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="D4n-hd-We4"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="totalCaloriesLabel" destination="pdl-t2-IFm" id="LDz-mM-hC3"/>
-                                        </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKF-H0-xbN">
                                         <rect key="frame" x="20" y="33" width="50" height="29"/>
@@ -62,6 +59,9 @@
                                     <constraint firstItem="xuP-H0-gq2" firstAttribute="bottom" secondItem="pdl-t2-IFm" secondAttribute="bottom" constant="-5" id="mhC-8C-3ul"/>
                                     <constraint firstAttribute="height" constant="84" id="qgN-KB-jvX"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="totalCaloriesLabel" destination="pdl-t2-IFm" id="F9u-AV-ybR"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gcG-he-N2X">
                                 <rect key="frame" x="0.0" y="172" width="414" height="704"/>
@@ -88,7 +88,7 @@
                     <connections>
                         <outlet property="emptyStateLabel" destination="QTi-oR-vyq" id="NFW-aU-vLr"/>
                         <outlet property="todayTableView" destination="gcG-he-N2X" id="iiq-D6-pvq"/>
-                        <outlet property="totalCaloriesView" destination="LGX-2b-IG8" id="9JR-5L-KEo"/>
+                        <outlet property="totalCaloriesView" destination="fvv-vL-SSS" id="9gJ-qY-l9q"/>
                         <segue destination="i7c-DS-cmT" kind="presentation" identifier="toFoods" id="ZLu-Nu-lAF"/>
                     </connections>
                 </viewController>

@@ -17,7 +17,7 @@ class PersistenceManager {
     }
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: Constants.Persistence.contextName)
+        let container = NSPersistentContainer(name: Constant.Persistence.contextName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
@@ -47,7 +47,7 @@ class PersistenceManager {
     func retrieveAllFoods() -> [Food] {
         let emptyFoods = [Food]()
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.Persistence.entityName)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.Persistence.entityName)
         do {
             guard let foods = try context.fetch(fetchRequest) as? [Food] else { return emptyFoods }
             return foods

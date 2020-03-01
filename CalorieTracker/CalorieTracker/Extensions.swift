@@ -59,6 +59,22 @@ extension UIAlertController {
     }
     
     func addCancelAction() {
-        addAction(UIAlertAction(title: Constants.Alerts.Titles.Actions.cancel, style: .cancel, handler: nil))
+        addAction(UIAlertAction(title: Constant.Alert.Title.Action.cancel, style: .cancel, handler: nil))
+    }
+}
+
+extension Date {
+    var shortDateString: String {
+        if Calendar.current.isDateInToday(self) {
+            return "Today"
+        }
+        else if Calendar.current.isDateInYesterday(self) {
+            return "Yesterday"
+        }
+        else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM-dd"
+            return formatter.string(from: self)
+        }
     }
 }

@@ -22,7 +22,7 @@ class NewFoodViewController: UIViewController {
     private var selectedImage: UIImage? {
         didSet {
             foodImageView.image = selectedImage
-            addButton.setTitle(Constants.ButtonTitles.change, for: .normal)
+            addButton.setTitle(Constant.ButtonTitle.change, for: .normal)
         }
     }
     
@@ -61,11 +61,11 @@ class NewFoodViewController: UIViewController {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let alert = AlertsManager.photoSelectionAlert
-            alert.addAction(withTitle: Constants.Alerts.Titles.Actions.fromPhotoLibrary, style: .default) { [weak self] in
+            alert.addAction(withTitle: Constant.Alert.Title.Action.fromPhotoLibrary, style: .default) { [weak self] in
                 guard let self = self else { return }
                 self.showPhotoLibrary()
             }
-            alert.addAction(withTitle: Constants.Alerts.Titles.Actions.usingCamera, style: .default) { [weak self] in
+            alert.addAction(withTitle: Constant.Alert.Title.Action.usingCamera, style: .default) { [weak self] in
                 guard let self = self else { return }
                 self.imagePicker.allowsEditing = true
                 self.imagePicker.sourceType = .camera

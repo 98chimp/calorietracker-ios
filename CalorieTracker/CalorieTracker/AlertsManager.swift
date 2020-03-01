@@ -10,7 +10,7 @@ import UIKit
 
 struct AlertsManager {
     static var photoSelectionAlert: UIAlertController {
-        let alert = UIAlertController(title: "", message: Constants.Alerts.Messages.photoSelection, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "", message: Constant.Alert.Message.photoSelection, preferredStyle: .actionSheet)
         alert.addCancelAction()
         return alert
     }
@@ -22,7 +22,7 @@ struct AlertsManager {
     }
     
     static var deleteFoodAlert: UIAlertController {
-        let alert = UIAlertController(title: Constants.Alerts.Titles.attention, message: Constants.Alerts.Messages.makeSelection, preferredStyle: .alert)
+        let alert = UIAlertController(title: Constant.Alert.Title.attention, message: Constant.Alert.Message.makeSelection, preferredStyle: .alert)
         alert.addCancelAction()
         return alert
     }

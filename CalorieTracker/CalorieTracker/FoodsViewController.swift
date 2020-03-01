@@ -16,7 +16,7 @@ class FoodsViewController: BaseViewController {
     // MARK: - Properties
     private var selectedFoods = [Food]()
     override var foods: [Food] {
-        return displayMode == .presentation ? FoodDataSource.shared.allFoods : FoodDataSource.shared.allUconsumedFoods
+        return displayMode == .presenting ? FoodDataSource.shared.allFoods : FoodDataSource.shared.allUconsumedFoods
     }
     
     // MARK: - Overrides
@@ -27,25 +27,26 @@ class FoodsViewController: BaseViewController {
     
     override func registerCells() {
         super.registerCells()
-        foodsTableView.register(UINib(nibName: Constants.Identifiers.Cells.foodCellNib, bundle: nil),
-                                forCellReuseIdentifier: Constants.Identifiers.Cells.foodCell)
+        foodsTableView.register(UINib(nibName: Constant.Identifier.Cell.foodCellNib, bundle: nil),
+                                forCellReuseIdentifier: Constant.Identifier.Cell.foodCell)
     }
     
     override func configureView() {
         super.configureView()
         foodsTableView.isHidden = foods.isEmpty
-        foodsTableView.allowsMultipleSelection = displayMode == .selection
+        foodsTableView.allowsMultipleSelection = displayMode == .presented
         foodsTableView.rowHeight = UITableView.automaticDimension
+        foods.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
     }
     
     override func configureBarButtons() {
         switch displayMode {
-        case .presentation:
+        case .presenting:
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                 target: self,
                                                                 action: #selector(addButtonTapped))
             
-        case .selection:
+        case .presented:
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                                 target: self,
                                                                 action: #selector(doneButtonTapped))
@@ -57,7 +58,7 @@ class FoodsViewController: BaseViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Identifiers.Segues.toNewFood {
+        if segue.identifier == Constant.Identifier.Segue.toNewFood {
             let destinationVC = segue.destination as? UINavigationController
             let newFoodVC = destinationVC?.viewControllers.first as? NewFoodViewController
             newFoodVC?.newFood = sender as? Food
@@ -87,7 +88,7 @@ class FoodsViewController: BaseViewController {
 extension FoodsViewController: FoodRemovable {
     
     private func showInputScreen(for food: Food?) {
-        performSegue(withIdentifier: Constants.Identifiers.Segues.toNewFood, sender: food)
+        performSegue(withIdentifier: Constant.Identifier.Segue.toNewFood, sender: food)
     }
     
     private func presentActionSheet(for indexPath: IndexPath) {
@@ -95,16 +96,16 @@ extension FoodsViewController: FoodRemovable {
         let alert = AlertsManager.foodLisActionsAlert
         
         if !food.isConsumedToday {
-            alert.addAction(withTitle: Constants.Alerts.Titles.Actions.addFoodToToday, style: .default) { [weak self] in
+            alert.addAction(withTitle: Constant.Alert.Title.Action.addFoodToToday, style: .default) { [weak self] in
                 self?.addFoodsToToday([food])
             }
         }
         
-        alert.addAction(withTitle: Constants.Alerts.Titles.Actions.editFood, style: .default) { [weak self] in
+        alert.addAction(withTitle: Constant.Alert.Title.Action.editFood, style: .default) { [weak self] in
             self?.showInputScreen(for: food)
         }
         
-        alert.addAction(withTitle: Constants.Alerts.Titles.Actions.deleteFood, style: .destructive) { [weak self] in
+        alert.addAction(withTitle: Constant.Alert.Title.Action.deleteFood, style: .destructive) { [weak self] in
             self?.delete(food)
         }
         
@@ -119,7 +120,7 @@ extension FoodsViewController: FoodRemovable {
     private func delete(_ food: Food) {
         let alert = AlertsManager.deleteFoodAlert
         
-        alert.addAction(withTitle: Constants.Alerts.Titles.Actions.delete, style: .destructive) {
+        alert.addAction(withTitle: Constant.Alert.Title.Action.delete, style: .destructive) {
             PersistenceManager.shared.delete(food)
         }
         
@@ -136,7 +137,7 @@ extension FoodsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let foodCell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.Cells.foodCell, for: indexPath) as? FoodTableViewCell else { return UITableViewCell() }
+        guard let foodCell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.Cell.foodCell, for: indexPath) as? FoodTableViewCell else { return UITableViewCell() }
         foodCell.configure(with: foods[indexPath.row])
         
         return foodCell
@@ -182,11 +183,11 @@ extension FoodsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch displayMode {
-        case .presentation:
+        case .presenting:
             tableView.deselectRow(at: indexPath, animated: false)
             presentActionSheet(for: indexPath)
             
-        case .selection:
+        case .presented:
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
             cell.accessoryType = .checkmark
             let selectedFood = foods[indexPath.row]
