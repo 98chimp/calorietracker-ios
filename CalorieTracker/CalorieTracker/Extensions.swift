@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+    
     static let coreBlue = UIColor(red: 0.114, green: 0.631, blue: 0.949, alpha: 1.000)
     static let coreOrange = UIColor(red: 0.961, green: 0.651, blue: 0.137, alpha: 1.000)
     static let coreRed = UIColor(red: 0.816, green: 0.008, blue: 0.106, alpha: 1.000)
@@ -16,6 +17,7 @@ extension UIColor {
 }
 
 extension UIView {
+    
     func shake() {
         let shakeAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         shakeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
@@ -27,6 +29,7 @@ extension UIView {
 }
 
 extension UIAlertController {
+    
     func show() {
         present(animated: true, completion: nil)
     }

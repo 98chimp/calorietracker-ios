@@ -10,6 +10,7 @@ import UIKit
 
 @IBDesignable
 class CircularImageView: UIImageView {
+    
     public override func awakeFromNib() {
         super.awakeFromNib()
         configureImageView()

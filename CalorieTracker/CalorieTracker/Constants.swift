@@ -12,6 +12,7 @@ struct Constants {
     struct Alerts {
         struct Titles {
             static let attention = "You are about to permanently delete a food from your list"
+            
             struct Actions {
                 static let cancel = "Cancel"
                 static let ok = "Okay"
@@ -35,12 +36,15 @@ struct Constants {
     }
     
     struct Identifiers {
-        struct Segues {
+            struct Segues {
             static let toNewFood = "toNewFood"
+            static let toFoods = "toFoods"
+            static let toToday = "toToday"
         }
         
         struct Cells {
             static let foodCell = "foodCell"
+            static let foodCellNib = "FoodTableViewCell"
             static let todayCell = "todayCell"
             static let trendLargeCell = "trendLargeCell"
             static let trendSmallCell = "trendSmallCell"

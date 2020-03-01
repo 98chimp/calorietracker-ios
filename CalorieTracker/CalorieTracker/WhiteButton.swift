@@ -10,6 +10,7 @@ import UIKit
 
 @IBDesignable
 class WhiteButton: UIButton {
+    
     public override func awakeFromNib() {
         super.awakeFromNib()
         configureButton()

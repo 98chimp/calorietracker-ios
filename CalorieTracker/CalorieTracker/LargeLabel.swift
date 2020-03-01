@@ -10,6 +10,7 @@ import UIKit
 
 @IBDesignable
 class LargeLabel: UILabel {
+    
     public override func awakeFromNib() {
         super.awakeFromNib()
         configureLabel()
@@ -22,6 +23,6 @@ class LargeLabel: UILabel {
 
     private func configureLabel() {
         textColor = .coreGray
-        font = UIFont.systemFont(ofSize: 48, weight: .ultraLight)
+        font = UIFont.systemFont(ofSize: 40, weight: .ultraLight)
     }
 }

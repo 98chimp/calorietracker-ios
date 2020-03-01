@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UINavigationBar.appearance().tintColor = .coreBlue
         UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.coreBlue], for: .normal)
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .coreBlue
     }
 }

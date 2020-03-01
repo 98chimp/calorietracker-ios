@@ -8,17 +8,39 @@
 
 import UIKit
 
+enum DisplayMode {
+    case presentation
+    case selection
+}
+
+protocol FoodRemovable {
+    func removeFoodsFromToday(_ foods: [Food])
+}
+
+extension FoodRemovable {
+    func removeFoodsFromToday(_ foods: [Food]) {
+        foods.forEach({ $0.isConsumedToday = false })
+        PersistenceManager.shared.saveContext()
+    }
+}
+
 class BaseViewController: UIViewController {
 
+    // MARK: - Properties
+    var displayMode = DisplayMode.presentation
     var foods: [Food] {
         return [Food]()
     }
     
+    // MARK: - Outlets
     @IBOutlet var emptyStateLabel: LargeLabel!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addObservers()
+        registerCells()
+        configureBarButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,10 +48,19 @@ class BaseViewController: UIViewController {
         configureView()
     }
     
+    // MARK: - Helpers
     func addObservers() {
         let context = PersistenceManager.shared.conetext
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataSource), name: Notification.Name.NSManagedObjectContextDidSave, object: context)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataSource), name: Notification.Name.NSManagedObjectContextObjectsDidChange, object: context)
+    }
+    
+    func registerCells() {
+        // implement in subclasses
+    }
+
+    func configureBarButtons() {
+        // implement in subclasses
     }
 
     @objc
@@ -39,6 +70,10 @@ class BaseViewController: UIViewController {
 
     func configureView() {
         foods.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
+    }
+
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
     }
 
     private func addEmptyStateLabel() {

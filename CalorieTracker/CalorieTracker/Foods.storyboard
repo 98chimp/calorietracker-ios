@@ -17,62 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e4v-bj-iKf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="76" id="0j7-LS-h2q" customClass="FoodTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="76"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0j7-LS-h2q" id="mM4-b3-eZZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-8q-H5t" customClass="CircularImageView" customModule="CalorieTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="16.5" width="45" height="45"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="BKe-BY-bVo"/>
-                                                        <constraint firstAttribute="width" secondItem="Ot4-8q-H5t" secondAttribute="height" multiplier="1:1" id="iqc-W3-ujZ"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIb-Pd-PSk">
-                                                    <rect key="frame" x="73" y="28.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="525" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBr-rY-YqQ">
-                                                    <rect key="frame" x="339" y="28.5" width="31" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-CH-8ll">
-                                                    <rect key="frame" x="373" y="28.5" width="21" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ot4-8q-H5t" firstAttribute="centerY" secondItem="jIb-Pd-PSk" secondAttribute="centerY" id="EQF-pR-uhG"/>
-                                                <constraint firstItem="hJD-CH-8ll" firstAttribute="trailing" secondItem="mM4-b3-eZZ" secondAttribute="trailingMargin" id="H0X-fz-jxT"/>
-                                                <constraint firstItem="jIb-Pd-PSk" firstAttribute="leading" secondItem="Ot4-8q-H5t" secondAttribute="trailing" constant="8" id="H9P-tE-ueJ"/>
-                                                <constraint firstItem="hJD-CH-8ll" firstAttribute="bottom" secondItem="jBr-rY-YqQ" secondAttribute="bottom" id="IyP-za-Egt"/>
-                                                <constraint firstItem="hJD-CH-8ll" firstAttribute="leading" secondItem="jBr-rY-YqQ" secondAttribute="trailing" constant="3" id="a6x-xt-57y"/>
-                                                <constraint firstItem="jIb-Pd-PSk" firstAttribute="top" secondItem="mM4-b3-eZZ" secondAttribute="topMargin" constant="17.5" id="dpT-kI-wWd"/>
-                                                <constraint firstItem="jBr-rY-YqQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jIb-Pd-PSk" secondAttribute="trailing" constant="20" id="fmQ-kn-FoL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jIb-Pd-PSk" secondAttribute="bottom" constant="16" id="rhZ-6m-uR9"/>
-                                                <constraint firstItem="jBr-rY-YqQ" firstAttribute="top" secondItem="jIb-Pd-PSk" secondAttribute="top" id="tEt-r3-Pzc"/>
-                                                <constraint firstItem="Ot4-8q-H5t" firstAttribute="leading" secondItem="mM4-b3-eZZ" secondAttribute="leadingMargin" id="x7g-cG-RJk"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="foodCaloriesLabel" destination="jBr-rY-YqQ" id="3Rx-DN-pfw"/>
-                                            <outlet property="foodImageView" destination="Ot4-8q-H5t" id="wbk-e3-WXZ"/>
-                                            <outlet property="foodNameLabel" destination="jIb-Pd-PSk" id="7u0-zE-CgN"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="5yy-gh-pyy" id="KIZ-ZZ-gUn"/>
                                     <outlet property="delegate" destination="5yy-gh-pyy" id="jgI-x8-f6v"/>
@@ -84,17 +30,11 @@
                             <constraint firstItem="e4v-bj-iKf" firstAttribute="leading" secondItem="C0a-Md-Z2s" secondAttribute="leading" id="07v-eg-LvQ"/>
                             <constraint firstItem="e4v-bj-iKf" firstAttribute="trailing" secondItem="C0a-Md-Z2s" secondAttribute="trailing" id="2Ao-49-3Vx"/>
                             <constraint firstItem="e4v-bj-iKf" firstAttribute="top" secondItem="C0a-Md-Z2s" secondAttribute="top" id="j8v-w0-2Bj"/>
-                            <constraint firstAttribute="bottom" secondItem="e4v-bj-iKf" secondAttribute="bottom" id="jfi-Wq-aiW"/>
+                            <constraint firstAttribute="bottom" secondItem="e4v-bj-iKf" secondAttribute="bottom" constant="20" symbolic="YES" id="jfi-Wq-aiW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C0a-Md-Z2s"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Foods" id="91S-1Z-9RN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Nc-5m-mTW">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="5yy-gh-pyy" id="f2P-6Z-vPj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Foods" id="91S-1Z-9RN"/>
                     <connections>
                         <outlet property="emptyStateLabel" destination="tPA-lY-Z3v" id="5Fi-pB-Pvh"/>
                         <outlet property="foodsTableView" destination="e4v-bj-iKf" id="prN-Vp-Bb7"/>

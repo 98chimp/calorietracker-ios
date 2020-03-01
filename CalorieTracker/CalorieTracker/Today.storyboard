@@ -12,26 +12,23 @@
         <!--Today-->
         <scene sceneID="Lay-mM-wPe">
             <objects>
-                <viewController title="Today" id="HEv-zJ-BKn" sceneMemberID="viewController">
+                <viewController title="Today" id="HEv-zJ-BKn" customClass="TodayViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cVv-0q-z9d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add the foods that you eat to this list each day to track your caloric intake!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTi-oR-vyq" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
-                                <rect key="frame" x="52.5" y="305" width="309.5" height="286.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="48"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-vL-SSS">
                                 <rect key="frame" x="0.0" y="88" width="414" height="84"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-2b-IG8">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-2b-IG8" customClass="TotalCaloriesView" customModule="CalorieTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="83" width="414" height="1"/>
                                         <color key="backgroundColor" name="CoreBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="D4n-hd-We4"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="totalCaloriesLabel" destination="pdl-t2-IFm" id="LDz-mM-hC3"/>
+                                        </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKF-H0-xbN">
                                         <rect key="frame" x="20" y="33" width="50" height="29"/>
@@ -39,8 +36,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdl-t2-IFm">
-                                        <rect key="frame" x="346.5" y="18" width="24" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdl-t2-IFm" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
+                                        <rect key="frame" x="347" y="18" width="23.5" height="48"/>
                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -66,24 +63,53 @@
                                     <constraint firstAttribute="height" constant="84" id="qgN-KB-jvX"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gcG-he-N2X">
+                                <rect key="frame" x="0.0" y="172" width="414" height="704"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HEv-zJ-BKn" id="hHu-hK-w42"/>
+                                    <outlet property="delegate" destination="HEv-zJ-BKn" id="STD-RG-I2C"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gcG-he-N2X" firstAttribute="top" secondItem="fvv-vL-SSS" secondAttribute="bottom" id="F3B-Ly-bFQ"/>
+                            <constraint firstItem="gcG-he-N2X" firstAttribute="leading" secondItem="Hyg-MR-jmT" secondAttribute="leading" id="LbF-dd-UoS"/>
                             <constraint firstItem="fvv-vL-SSS" firstAttribute="leading" secondItem="Hyg-MR-jmT" secondAttribute="leading" id="OCI-U3-4zb"/>
-                            <constraint firstItem="QTi-oR-vyq" firstAttribute="centerY" secondItem="cVv-0q-z9d" secondAttribute="centerY" id="b32-MT-ipk"/>
+                            <constraint firstItem="gcG-he-N2X" firstAttribute="trailing" secondItem="Hyg-MR-jmT" secondAttribute="trailing" id="YsQ-XJ-7jK"/>
+                            <constraint firstAttribute="bottom" secondItem="gcG-he-N2X" secondAttribute="bottom" constant="20" symbolic="YES" id="fPh-CX-zrI"/>
                             <constraint firstItem="fvv-vL-SSS" firstAttribute="top" secondItem="Hyg-MR-jmT" secondAttribute="top" id="gUd-Gp-dzi"/>
                             <constraint firstItem="fvv-vL-SSS" firstAttribute="trailing" secondItem="Hyg-MR-jmT" secondAttribute="trailing" id="gZB-8d-jwA"/>
-                            <constraint firstItem="QTi-oR-vyq" firstAttribute="centerX" secondItem="cVv-0q-z9d" secondAttribute="centerX" id="kdg-62-iwN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hyg-MR-jmT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="c8k-3p-Fvh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mUo-Ss-59g"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Today" id="c8k-3p-Fvh"/>
+                    <connections>
+                        <outlet property="emptyStateLabel" destination="QTi-oR-vyq" id="NFW-aU-vLr"/>
+                        <outlet property="todayTableView" destination="gcG-he-N2X" id="iiq-D6-pvq"/>
+                        <outlet property="totalCaloriesView" destination="LGX-2b-IG8" id="9JR-5L-KEo"/>
+                        <segue destination="i7c-DS-cmT" kind="presentation" identifier="toFoods" id="ZLu-Nu-lAF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYT-dK-JBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add the foods that you eat to this list each day to track your caloric intake!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTi-oR-vyq" customClass="LargeLabel" customModule="CalorieTracker" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="309.5" height="286.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="48"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </objects>
             <point key="canvasLocation" x="3101.449275362319" y="386.38392857142856"/>
+        </scene>
+        <!--Foods-->
+        <scene sceneID="apk-Fb-pYb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Foods" id="i7c-DS-cmT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljk-4B-UUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3764" y="386"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pbu-gv-FRY">
