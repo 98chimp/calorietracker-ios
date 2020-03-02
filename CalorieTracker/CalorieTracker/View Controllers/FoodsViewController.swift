@@ -16,7 +16,7 @@ class FoodsViewController: BaseViewController {
     // MARK: - Properties
     private var selectedFoods = [Food]()
     override var foods: [Food] {
-        return displayMode == .presenting ? FoodDataSource.shared.allFoods : FoodDataSource.shared.allUconsumedFoods
+        return displayMode == .presenting ? FoodDataSource.shared.allVisibleFoods : FoodDataSource.shared.allUconsumedFoods
     }
     
     // MARK: - Overrides
@@ -121,7 +121,8 @@ extension FoodsViewController: FoodRemovable {
         let alert = AlertsManager.deleteFoodAlert
         
         alert.addAction(withTitle: Constant.Alert.Title.Action.delete, style: .destructive) {
-            PersistenceManager.shared.delete(food)
+            food.isHidden = true
+            PersistenceManager.shared.saveContext()
         }
         
         alert.show()

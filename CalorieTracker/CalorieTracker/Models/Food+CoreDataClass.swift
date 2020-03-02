@@ -16,6 +16,7 @@ public class Food: NSManagedObject {
     @NSManaged public var consumptionDates: [Date]
     @NSManaged public var imageData: Data
     @NSManaged public var name: String
+    @NSManaged public var isHidden: Bool
     
     public var isConsumedToday: Bool {
         set {

@@ -41,7 +41,8 @@ extension UIAlertController {
     }
     
     func present(animated: Bool, completion: (() -> Void)?) {
-        if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        if let rootVC = keyWindow?.rootViewController {
             presentFromController(controller: rootVC, animated: animated, completion: completion)
         }
     }
@@ -90,6 +91,16 @@ extension Date {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM-dd"
             return formatter.string(from: self)
+        }
+    }
+}
+
+extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
         }
     }
 }

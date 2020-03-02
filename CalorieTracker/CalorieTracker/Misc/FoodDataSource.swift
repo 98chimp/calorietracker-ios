@@ -20,13 +20,16 @@ class FoodDataSource {
         }
     }
     
+    var allVisibleFoods: [Food] {
+        return allFoods.filter({ !$0.isHidden })
+    }
     var allUconsumedFoods: [Food] {
         return allFoods.filter({ !$0.isConsumedToday })
     }
     
     var todayFoods: [Food] {
         allFoods.filter( {
-            if let lastDate = $0.consumptionDates.last {
+            if let lastDate = $0.consumptionDates.sorted().last {
                 return Calendar.current.isDateInToday(lastDate)
             }
             return false
@@ -74,14 +77,16 @@ class FoodDataSource {
     
     func allFoods(for date: Date) -> [Food] {
         var foods = [Food]()
-        for food in allFoods {
-            guard !food.consumptionDates.isEmpty else { continue }
-            for consumptionDate in food.consumptionDates {
-                if Calendar.current.isDate(consumptionDate, equalTo: date, toGranularity: .day) {
-                    foods.append(food)
+        allFoods.forEach({
+            if !$0.consumptionDates.isEmpty {
+                for consumptionDate in $0.consumptionDates {
+                    if Calendar.current.isDate(consumptionDate, equalTo: date, toGranularity: .day) {
+                        foods.append($0)
+                    }
                 }
+                print("date: \(date.shortDateString)   foodname: \($0.name)   count: \(foods.count)")
             }
-        }
+        })
         return foods
     }
     

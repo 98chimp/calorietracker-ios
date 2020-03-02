@@ -42,8 +42,8 @@
 		EB5AC8F82408E3FE00FA2982 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */; };
 		EB5AC8FA2408EB5B00FA2982 /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */; };
 		EB5AC8FC2408EB7D00FA2982 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */; };
+		EB691039240D14E900AD752D /* MockFoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */; };
 		EB73F94F240CD052009665B3 /* MockFoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */; };
-		EB73F950240CF203009665B3 /* MockFoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */; };
 		EB73F951240CF30D009665B3 /* FoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475EF4240A300B00DCCA76 /* FoodDataSource.swift */; };
 		EB73F952240CF33A009665B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8ED2408E06D00FA2982 /* Constants.swift */; };
 		EB73F953240CF33E009665B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53B24079D1B002FBE11 /* Extensions.swift */; };
@@ -606,9 +606,9 @@
 				EB73F95B240CF359009665B3 /* LargeLabel.swift in Sources */,
 				EB73F961240CF363009665B3 /* BaseViewController.swift in Sources */,
 				EB73F963240CF363009665B3 /* NewFoodViewController.swift in Sources */,
+				EB691039240D14E900AD752D /* MockFoodDataSource.swift in Sources */,
 				EB73F964240CF363009665B3 /* TodayViewController.swift in Sources */,
 				EB73F953240CF33E009665B3 /* Extensions.swift in Sources */,
-				EB73F950240CF203009665B3 /* MockFoodDataSource.swift in Sources */,
 				EB73F966240CF363009665B3 /* TrendsChartViewController.swift in Sources */,
 				EB73F95C240CF359009665B3 /* SevenDayTrendCollectionViewCell.swift in Sources */,
 				EB73F955240CF34A009665B3 /* Food+CoreDataClass.swift in Sources */,

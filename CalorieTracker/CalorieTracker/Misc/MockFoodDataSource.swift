@@ -168,9 +168,10 @@ private struct MockFood {
 private extension Date {
     static var randomeDates: [Date] {
         var dates = [Date]()
-        for _ in 1 ... 10 {
+        for _ in 1 ... 5 {
             let randomDay = Int(arc4random_uniform(UInt32(30)))
-            let randomDate = Calendar.current.date(byAdding: .day, value: -randomDay, to: Date())!
+            let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+            let randomDate = Calendar.current.date(byAdding: .day, value: -randomDay, to: yesterday)!
             dates.append(randomDate)
         }
         return dates

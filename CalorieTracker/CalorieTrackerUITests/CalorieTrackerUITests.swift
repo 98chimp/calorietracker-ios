@@ -95,9 +95,7 @@ class CalorieTrackerUITests: XCTestCase {
         
         let itemButton = app.navigationBars["Trends"].buttons["Item"]
         itemButton.tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).staticTexts["Today"].tap()
         app.navigationBars["30-day Trends"].buttons["Trends"].tap()
-        
     }
 }
 
