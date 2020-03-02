@@ -9,7 +9,7 @@ There is/are:
 - a number of reusable UI components to maintain consistency and stability in the app.
 
 # Deisgn Considerations
-Ample time was dedicated to visual design of the app a fully clickable prototype that very closely approximates the final UX was created first before development began.
+Ample time was dedicated to visual design of the app a fully clickable prototype that very closely approximates the final UX was created first before development began. This clickable prototype is available by running `Designs.sketch` (located at the root of the repo) using `Sketch App`.
 
 # Installation Details
 1. Clone the repo
