@@ -76,3 +76,4 @@ Then **RUN ests** (**⌘-U**) the app on your device or simulator, sit back and 
 ## Next Steps
 - Modify the model layer to allow multiple entries of the same food item per day.
 - Optimize the layout for iPad screens.
+- Add unit and UI test cases to improve code coverage. 
