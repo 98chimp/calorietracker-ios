@@ -9,7 +9,9 @@
 import Foundation
 
 struct Constant {
+    
     struct Alert {
+        
         struct Title {
             static let attention = "You are about to permanently delete a food from your list"
             static let createMockData = "Would you like to add some mock data to the app?"
@@ -38,6 +40,7 @@ struct Constant {
     }
     
     struct Identifier {
+        
         struct Segue {
             static let toNewFood = "toNewFood"
             static let toFoods = "toFoods"
@@ -61,12 +64,5 @@ struct Constant {
     struct Persistence {
         static let contextName = "CalorieTracker"
         static let entityName = "Food"
-    }
-    
-    struct Storyboard {
-        static let main = "Main"
-        static let foods = "Foods"
-        static let today = "Today"
-        static let trends = "Trends"
     }
 }

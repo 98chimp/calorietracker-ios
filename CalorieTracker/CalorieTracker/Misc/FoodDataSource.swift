@@ -23,6 +23,7 @@ class FoodDataSource {
     var allVisibleFoods: [Food] {
         return allFoods.filter({ !$0.isHidden })
     }
+    
     var allUconsumedFoods: [Food] {
         return allFoods.filter({ !$0.isConsumedToday })
     }
@@ -84,7 +85,6 @@ class FoodDataSource {
                         foods.append($0)
                     }
                 }
-                print("date: \(date.shortDateString)   foodname: \($0.name)   count: \(foods.count)")
             }
         })
         return foods

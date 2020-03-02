@@ -17,7 +17,7 @@
 		EB07B51224063F89002FBE11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B51024063F89002FBE11 /* LaunchScreen.storyboard */; };
 		EB07B51D24063F89002FBE11 /* CalorieTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B51C24063F89002FBE11 /* CalorieTrackerTests.swift */; };
 		EB07B52824063F8A002FBE11 /* CalorieTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B52724063F8A002FBE11 /* CalorieTrackerUITests.swift */; };
-		EB07B536240641F2002FBE11 /* Foods.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B535240641F2002FBE11 /* Foods.storyboard */; };
+		EB07B536240641F2002FBE11 /* MyFoods.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B535240641F2002FBE11 /* MyFoods.storyboard */; };
 		EB07B53824064205002FBE11 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B53724064205002FBE11 /* Today.storyboard */; };
 		EB07B53A24064213002FBE11 /* Trends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07B53924064213002FBE11 /* Trends.storyboard */; };
 		EB07B53C24079D1B002FBE11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53B24079D1B002FBE11 /* Extensions.swift */; };
@@ -107,7 +107,7 @@
 		EB07B52324063F8A002FBE11 /* CalorieTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalorieTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB07B52724063F8A002FBE11 /* CalorieTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerUITests.swift; sourceTree = "<group>"; };
 		EB07B52924063F8A002FBE11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB07B535240641F2002FBE11 /* Foods.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Foods.storyboard; sourceTree = "<group>"; };
+		EB07B535240641F2002FBE11 /* MyFoods.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyFoods.storyboard; sourceTree = "<group>"; };
 		EB07B53724064205002FBE11 /* Today.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Today.storyboard; sourceTree = "<group>"; };
 		EB07B53924064213002FBE11 /* Trends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trends.storyboard; sourceTree = "<group>"; };
 		EB07B53B24079D1B002FBE11 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -271,9 +271,9 @@
 		EB73F94B240CB1E3009665B3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				EB07B535240641F2002FBE11 /* Foods.storyboard */,
 				EB07B51024063F89002FBE11 /* LaunchScreen.storyboard */,
 				EB07B50824063F86002FBE11 /* Main.storyboard */,
+				EB07B535240641F2002FBE11 /* MyFoods.storyboard */,
 				EB07B53724064205002FBE11 /* Today.storyboard */,
 				EB07B53924064213002FBE11 /* Trends.storyboard */,
 			);
@@ -428,7 +428,7 @@
 				EB07B53824064205002FBE11 /* Today.storyboard in Resources */,
 				EB475EFF240AF95200DCCA76 /* FoodTableViewCell.xib in Resources */,
 				EB07B50F24063F89002FBE11 /* Assets.xcassets in Resources */,
-				EB07B536240641F2002FBE11 /* Foods.storyboard in Resources */,
+				EB07B536240641F2002FBE11 /* MyFoods.storyboard in Resources */,
 				EB07B53A24064213002FBE11 /* Trends.storyboard in Resources */,
 				EB07B50A24063F86002FBE11 /* Main.storyboard in Resources */,
 			);

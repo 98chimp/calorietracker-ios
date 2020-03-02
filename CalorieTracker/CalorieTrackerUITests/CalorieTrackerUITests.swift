@@ -49,7 +49,7 @@ class CalorieTrackerUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        let addButton = app.navigationBars["Foods"].buttons["Add"]
+        let addButton = app.navigationBars["My Foods"].buttons["Add"]
         XCTAssertTrue(addButton.exists)
         addButton.tap()
 

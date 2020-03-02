@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="3101.449275362319" y="386.38392857142856"/>
         </scene>
-        <!--Foods-->
+        <!--MyFoods-->
         <scene sceneID="apk-Fb-pYb">
             <objects>
-                <viewControllerPlaceholder storyboardName="Foods" id="i7c-DS-cmT" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MyFoods" id="i7c-DS-cmT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljk-4B-UUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3764" y="386"/>
