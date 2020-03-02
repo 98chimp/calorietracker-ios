@@ -8,44 +8,61 @@
 
 import CoreData
 
-typealias Trend = (date: Date, calories: Double)
+typealias TrendPoint = (date: Date, calories: Double)
 
 final class FoodDataSource {
     
     static var shared = FoodDataSource()
     
-    lazy var allFoods: [Food] = {
+    var allFoods: [Food] {
         return PersistenceManager.shared.retrieveAllFoods().sorted {
             $0.name < $1.name
         }
-    }()
+    }
     
-    lazy var allUconsumedFoods: [Food] = {
+    var allUconsumedFoods: [Food] {
         return allFoods.filter({ !$0.isConsumedToday })
-    }()
+    }
     
-    lazy var todayFoods: [Food] = {
+    var todayFoods: [Food] {
         allFoods.filter( {
             if let lastDate = $0.consumptionDates.last {
                 return Calendar.current.isDateInToday(lastDate)
             }
             return false
         })
-    }()
+    }
     
-    lazy var totalTodayCalories: Double = {
+    var totalTodayCalories: Double {
         return todayFoods.compactMap({ $0.calories }).reduce(.zero, +)
-    }()
+    }
     
-    lazy var sevenDayTrends: [Trend] = {
-        var trends = [Trend]()
+    var dynamicSevenDayTrend: [TrendPoint] {
+        return updatedTrend(sevenDayTrend)
+    }
+    
+    var dynamicThirtyDayTrend: [TrendPoint] {
+        return updatedTrend(thirtyDayTrend)
+    }
+    
+    private func updatedTrend(_ trend: [TrendPoint]) -> [TrendPoint] {
+        var updatedTrend = trend
+        var todayTrendPoint = trend.first
+        todayTrendPoint?.calories = totalTodayCalories
+        updatedTrend.removeFirst()
+        updatedTrend.insert(todayTrendPoint!, at: 0)
+        return updatedTrend
+    }
+    
+    private lazy var sevenDayTrend: [TrendPoint] = {
+        var trends = [TrendPoint]()
         let dates = getLast(days: 7)
         dates.forEach({ trends.append(($0, totalCalories(for: $0))) })
         return trends
     }()
     
-    lazy var thirtyDayTrends: [Trend] = {
-        var trends = [Trend]()
+    private lazy var thirtyDayTrend: [TrendPoint] = {
+        var trends = [TrendPoint]()
         let dates = getLast(days: 30)
         dates.forEach({ trends.append(($0, totalCalories(for: $0))) })
         return trends

@@ -17,8 +17,7 @@ class TrendCollectionViewCell: UICollectionViewCell {
         configure(with: nil)
     }
     
-    func configure(with trend: Trend?) {
-        totalCaloriesView.totalCalories = trend?.calories ?? 0.0
-        totalCaloriesView.trendDate = trend?.date ?? Date()
+    func configure(with trendPoint: TrendPoint?) {
+        totalCaloriesView.trendPoint = trendPoint
     }
 }

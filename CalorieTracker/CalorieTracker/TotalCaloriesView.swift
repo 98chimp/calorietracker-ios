@@ -10,18 +10,25 @@ import UIKit
 
 class TotalCaloriesView: UIView {
 
-    @IBOutlet var totalCaloriesLabel: LargeLabel!
-    @IBOutlet var dayLabel: UILabel?
+    @IBOutlet private var totalCaloriesLabel: LargeLabel!
+    @IBOutlet private var dayLabel: UILabel?
     
-    var totalCalories: Double = 0 {
+    var trendPoint: TrendPoint? {
         didSet {
-            totalCaloriesLabel.text = String(format: "%0.f", totalCalories)
+            totalCalories = trendPoint?.calories
+            trendDate = trendPoint?.date
         }
     }
     
-    var trendDate: Date = Date() {
+    var totalCalories: Double? {
         didSet {
-            dayLabel?.text = trendDate.shortDateString
+            totalCaloriesLabel.text = String(format: "%0.f", totalCalories ?? 0)
+        }
+    }
+    
+    private var trendDate: Date? = Date() {
+        didSet {
+            dayLabel?.text = trendDate?.shortDateString
         }
     }
 }

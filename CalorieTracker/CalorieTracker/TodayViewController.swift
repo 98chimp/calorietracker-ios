@@ -15,13 +15,13 @@ class TodayViewController: BaseViewController {
     @IBOutlet weak var totalCaloriesView: TotalCaloriesView!
     
     // MARK: - Properties
-    var trend: Trend?
+    var trendPoint: TrendPoint?
     override var foods: [Food] {
         switch displayMode {
         case .presenting:
             return FoodDataSource.shared.todayFoods
         case .presented:
-            return FoodDataSource.shared.allFoods(for: trend?.date ?? Date())
+            return FoodDataSource.shared.allFoods(for: trendPoint?.date ?? Date())
         }
     }
     
@@ -38,10 +38,10 @@ class TodayViewController: BaseViewController {
         todayTableView.rowHeight = UITableView.automaticDimension
         foods.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
         
-        if let trend = trend, displayMode == .presented {
-            title = trend.date.shortDateString
-            totalCaloriesView.totalCalories = trend.calories
-            emptyStateLabel.text = "Nothing to show\n\n😊"
+        if displayMode == .presented {
+            title = trendPoint?.date.shortDateString
+            totalCaloriesView.trendPoint = trendPoint
+            emptyStateLabel.text = "Nothing to see here!\n\n😊"
         }
         else {
             totalCaloriesView.totalCalories = FoodDataSource.shared.totalTodayCalories

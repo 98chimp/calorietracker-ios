@@ -32,8 +32,8 @@ class BaseViewController: UIViewController {
     var foods: [Food] {
         return [Food]()
     }
-    var trends: [Trend] {
-        return [Trend]()
+    var trend: [TrendPoint] {
+        return [TrendPoint]()
     }
     
     // MARK: - Outlets

@@ -71,7 +71,8 @@ class NewFoodViewController: UIViewController {
                 self.imagePicker.sourceType = .camera
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
-            alert.show()
+            
+            alert.show(for: sender)
         }
         else {
             showPhotoLibrary()

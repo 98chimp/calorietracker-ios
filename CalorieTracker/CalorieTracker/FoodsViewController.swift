@@ -109,7 +109,7 @@ extension FoodsViewController: FoodRemovable {
             self?.delete(food)
         }
         
-        alert.show()
+        alert.show(for: foodsTableView.cellForRow(at: indexPath))
     }
     
     private func addFoodsToToday(_ foods: [Food]) {

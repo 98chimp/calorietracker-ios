@@ -25,12 +25,12 @@ class TrendsViewController: BaseViewController {
     private var selectedTrend: SelectedTrend {
         return SelectedTrend(rawValue: trendSelector.selectedSegmentIndex)!
     }
-    override var trends: [Trend] {
+    override var trend: [TrendPoint] {
         switch selectedTrend {
         case .sevenDays:
-            return FoodDataSource.shared.sevenDayTrends
+            return FoodDataSource.shared.dynamicSevenDayTrend
         case .thirtyDays:
-            return FoodDataSource.shared.thirtyDayTrends
+            return FoodDataSource.shared.dynamicThirtyDayTrend
         }
     }
     
@@ -43,8 +43,9 @@ class TrendsViewController: BaseViewController {
     // MARK: - Overrides
     override func configureView() {
         super.configureView()
-        trends.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
+        trend.isEmpty ? addEmptyStateLabel() : removeEmptyStateLabel()
         trendsCollectionView.allowsSelection = true
+        trendsCollectionView.reloadData()
     }
     
     private func configureFlowLayouts() {
@@ -63,11 +64,19 @@ class TrendsViewController: BaseViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.Identifier.Segue.toToday {
+        switch segue.identifier {
+        case Constant.Identifier.Segue.toToday:
             let navigationVC = segue.destination as? UINavigationController
             let todayVC = navigationVC?.viewControllers.first as? TodayViewController
             todayVC?.displayMode = .presented
-            todayVC?.trend = trends[selectedIndexPath.row]
+            todayVC?.trendPoint = trend[selectedIndexPath.row]
+            
+        case Constant.Identifier.Segue.toChart:
+            let destinationVC = segue.destination as? TrendsChartViewController
+            destinationVC?.trend = trend
+            
+        default:
+            break
         }
     }
 
@@ -82,13 +91,17 @@ class TrendsViewController: BaseViewController {
             trendsCollectionView.setCollectionViewLayout(thirtyDayFlowLayout, animated: true)
         }
     }
+    
+    @IBAction func chartButtonTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: Constant.Identifier.Segue.toChart, sender: nil)
+    }
 }
 
 // MARK: - Collection View Data Source
 extension TrendsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        trends.count
+        trend.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,7 +114,7 @@ extension TrendsViewController: UICollectionViewDataSource {
         }
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? TrendCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(with: trends[indexPath.row])
+        cell.configure(with: trend[indexPath.row])
         return cell
     }
 }

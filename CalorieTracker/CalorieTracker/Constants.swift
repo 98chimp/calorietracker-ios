@@ -36,10 +36,11 @@ struct Constant {
     }
     
     struct Identifier {
-            struct Segue {
+        struct Segue {
             static let toNewFood = "toNewFood"
             static let toFoods = "toFoods"
             static let toToday = "toToday"
+            static let toChart = "toChart"
         }
         
         struct Cell {
@@ -65,9 +66,5 @@ struct Constant {
         static let foods = "Foods"
         static let today = "Today"
         static let trends = "Trends"
-    }
-    
-    struct ViewController {
-        
     }
 }

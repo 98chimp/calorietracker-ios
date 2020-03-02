@@ -30,7 +30,13 @@ extension UIView {
 
 extension UIAlertController {
     
-    func show() {
+    func show(for sourceView: UIView? = nil) {
+        // to support presentation of action sheets as popovers on iPad
+        if let sourceView = sourceView, let popoverController = popoverPresentationController {
+            popoverController.sourceView = sourceView
+            popoverController.sourceRect = sourceView.bounds
+        }
+
         present(animated: true, completion: nil)
     }
     
@@ -64,11 +70,20 @@ extension UIAlertController {
 }
 
 extension Date {
+    
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    
+    var isYesterday: Bool {
+        return Calendar.current.isDateInYesterday(self)
+    }
+    
     var shortDateString: String {
-        if Calendar.current.isDateInToday(self) {
+        if isToday {
             return "Today"
         }
-        else if Calendar.current.isDateInYesterday(self) {
+        else if isYesterday {
             return "Yesterday"
         }
         else {
