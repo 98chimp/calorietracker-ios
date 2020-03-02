@@ -64,7 +64,7 @@ A number of UI test cases were added to provide some automated testing of the ap
    - Shake the device (or simulate shake gesture)
    - Tap **ADD**
 
-Then **RUN tests** (**⌘-U**) the app on your device or simulator, sit back and watch the automation in action!
+Then **RUN tests** (**⌘-U**) on your device or simulator, sit back and watch the automation in action!
 
 ## Known Issues:
 - The app is currently designed such that each food item can be added to today's list *only* once. This limitation is surpassed during mock data generation.
