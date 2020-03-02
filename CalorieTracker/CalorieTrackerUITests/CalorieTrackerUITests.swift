@@ -23,7 +23,7 @@ class CalorieTrackerUITests: XCTestCase {
         let mockBreakfast10StaticText = tablesQuery.staticTexts["Mock Breakfast 10"]
         XCTAssertTrue(mockBreakfast10StaticText.exists)
         mockBreakfast10StaticText.tap()
-        app.popovers.sheets.scrollViews.otherElements.buttons["Add Food to Today"].tap()
+        app.sheets.scrollViews.otherElements.buttons["Add Food to Today"].tap()
     }
     
     func testRemovigFoodFromToday() {
@@ -67,10 +67,10 @@ class CalorieTrackerUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Mock Dinner 5"]/*[[".cells.staticTexts[\"Mock Dinner 5\"]",".staticTexts[\"Mock Dinner 5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.popovers.sheets.scrollViews.otherElements.buttons["Delete Food"].tap()
+        app.sheets.scrollViews.otherElements.buttons["Delete Food"].tap()
         app.alerts["You are about to permanently delete a food from your list"].scrollViews.otherElements.buttons["Cancel"].tap()
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Mock Dinner 5"]/*[[".cells.staticTexts[\"Mock Dinner 5\"]",".staticTexts[\"Mock Dinner 5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.popovers.sheets.scrollViews.otherElements.buttons["Delete Food"].tap()
+        app.sheets.scrollViews.otherElements.buttons["Delete Food"].tap()
         app.alerts["You are about to permanently delete a food from your list"].scrollViews.otherElements.buttons["Delete"].tap()
         XCTAssertFalse(app.tables/*@START_MENU_TOKEN@*/.staticTexts["Mock Dinner 5"]/*[[".cells.staticTexts[\"Mock Dinner 5\"]",".staticTexts[\"Mock Dinner 5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         
@@ -96,13 +96,7 @@ class CalorieTrackerUITests: XCTestCase {
         let itemButton = app.navigationBars["Trends"].buttons["Item"]
         itemButton.tap()
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).staticTexts["Today"].tap()
-        
-//        let navigationBar = app.navigationBars["7-day Trends"]
-//        navigationBar.staticTexts["7-day Trends"].tap()
-//        navigationBar.buttons["Trends"].tap()
         app.navigationBars["30-day Trends"].buttons["Trends"].tap()
-//        app.buttons["30 Days"].tap()
-//        itemButton.tap()
         
     }
 }
