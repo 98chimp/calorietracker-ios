@@ -26,4 +26,16 @@ struct AlertsManager {
         alert.addCancelAction()
         return alert
     }
+    
+    static var createMockDataAlert: UIAlertController {
+        let alert = UIAlertController(title: Constant.Alert.Title.createMockData, message: Constant.Alert.Message.makeSelection, preferredStyle: .alert)
+        alert.addCancelAction()
+        return alert
+    }
+
+    static var destroyMockDataAlert: UIAlertController {
+        let alert = UIAlertController(title: Constant.Alert.Title.destroyMockData, message: Constant.Alert.Message.makeSelection, preferredStyle: .alert)
+        alert.addCancelAction()
+        return alert
+    }
 }

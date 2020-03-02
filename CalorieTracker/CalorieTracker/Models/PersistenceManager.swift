@@ -16,6 +16,10 @@ class PersistenceManager {
         return persistentContainer.viewContext
     }
     
+    var entity: NSEntityDescription? {
+        return NSEntityDescription.entity(forEntityName: Constant.Persistence.entityName, in: conetext)
+    }
+    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: Constant.Persistence.contextName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -38,7 +42,7 @@ class PersistenceManager {
         }
     }
     
-    func delete(_ food: NSManagedObject) {
+    func delete(_ food: Food) {
         let context = persistentContainer.viewContext
         context.delete(food)
         saveContext()

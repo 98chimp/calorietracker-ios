@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,6 +42,31 @@
 		EB5AC8F82408E3FE00FA2982 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */; };
 		EB5AC8FA2408EB5B00FA2982 /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */; };
 		EB5AC8FC2408EB7D00FA2982 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */; };
+		EB73F94F240CD052009665B3 /* MockFoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */; };
+		EB73F950240CF203009665B3 /* MockFoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */; };
+		EB73F951240CF30D009665B3 /* FoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475EF4240A300B00DCCA76 /* FoodDataSource.swift */; };
+		EB73F952240CF33A009665B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8ED2408E06D00FA2982 /* Constants.swift */; };
+		EB73F953240CF33E009665B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53B24079D1B002FBE11 /* Extensions.swift */; };
+		EB73F954240CF347009665B3 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */; };
+		EB73F955240CF34A009665B3 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4880142408FD8A00D6419E /* Food+CoreDataClass.swift */; };
+		EB73F956240CF34D009665B3 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B53D24079D55002FBE11 /* PersistenceManager.swift */; };
+		EB73F957240CF359009665B3 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */; };
+		EB73F958240CF359009665B3 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475EFA240A64F300DCCA76 /* CircularImageView.swift */; };
+		EB73F959240CF359009665B3 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475EFC240AF95200DCCA76 /* FoodTableViewCell.swift */; };
+		EB73F95A240CF359009665B3 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB475EFD240AF95200DCCA76 /* FoodTableViewCell.xib */; };
+		EB73F95B240CF359009665B3 /* LargeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */; };
+		EB73F95C240CF359009665B3 /* SevenDayTrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E7C11240B820C00198C7E /* SevenDayTrendCollectionViewCell.swift */; };
+		EB73F95D240CF359009665B3 /* ThirdyDayTrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E7C13240B822000198C7E /* ThirdyDayTrendCollectionViewCell.swift */; };
+		EB73F95E240CF359009665B3 /* TotalCaloriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475F00240B13BE00DCCA76 /* TotalCaloriesView.swift */; };
+		EB73F95F240CF359009665B3 /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E7C15240B99F600198C7E /* TrendCollectionViewCell.swift */; };
+		EB73F960240CF359009665B3 /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */; };
+		EB73F961240CF363009665B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB475EF6240A4B7300DCCA76 /* BaseViewController.swift */; };
+		EB73F962240CF363009665B3 /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8EF2408E0E300FA2982 /* FoodsViewController.swift */; };
+		EB73F963240CF363009665B3 /* NewFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F12408E2A100FA2982 /* NewFoodViewController.swift */; };
+		EB73F964240CF363009665B3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F32408E3B200FA2982 /* TodayViewController.swift */; };
+		EB73F965240CF363009665B3 /* TrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AC8F52408E3C300FA2982 /* TrendsViewController.swift */; };
+		EB73F966240CF363009665B3 /* TrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E7C17240C336B00198C7E /* TrendsChartViewController.swift */; };
+		EB73F967240CF3BC009665B3 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB07B50B24063F86002FBE11 /* CalorieTracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +132,7 @@
 		EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
 		EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFoodDataSource.swift; sourceTree = "<group>"; };
 		F50CD0EE342AF44B946402F5 /* Pods-CalorieTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerTests/Pods-CalorieTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8DA2113E3E4365DE458B33A /* Pods-CalorieTracker-CalorieTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker-CalorieTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker-CalorieTrackerUITests/Pods-CalorieTracker-CalorieTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,36 +201,12 @@
 			isa = PBXGroup;
 			children = (
 				EB07B50224063F86002FBE11 /* AppDelegate.swift */,
-				EB07B53B24079D1B002FBE11 /* Extensions.swift */,
-				EB4880142408FD8A00D6419E /* Food+CoreDataClass.swift */,
-				EB07B53D24079D55002FBE11 /* PersistenceManager.swift */,
-				EB475EF4240A300B00DCCA76 /* FoodDataSource.swift */,
-				EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */,
-				EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */,
-				EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */,
-				EB475EFA240A64F300DCCA76 /* CircularImageView.swift */,
-				EB07B50824063F86002FBE11 /* Main.storyboard */,
-				EB07B535240641F2002FBE11 /* Foods.storyboard */,
-				EB07B53724064205002FBE11 /* Today.storyboard */,
-				EB07B53924064213002FBE11 /* Trends.storyboard */,
-				EB0E7C11240B820C00198C7E /* SevenDayTrendCollectionViewCell.swift */,
-				EB0E7C13240B822000198C7E /* ThirdyDayTrendCollectionViewCell.swift */,
-				EB0E7C15240B99F600198C7E /* TrendCollectionViewCell.swift */,
-				EB5AC8ED2408E06D00FA2982 /* Constants.swift */,
-				EB475EF6240A4B7300DCCA76 /* BaseViewController.swift */,
-				EB5AC8EF2408E0E300FA2982 /* FoodsViewController.swift */,
-				EB475EFC240AF95200DCCA76 /* FoodTableViewCell.swift */,
-				EB475EFD240AF95200DCCA76 /* FoodTableViewCell.xib */,
-				EB5AC8F12408E2A100FA2982 /* NewFoodViewController.swift */,
-				EB5AC8F32408E3B200FA2982 /* TodayViewController.swift */,
-				EB475F00240B13BE00DCCA76 /* TotalCaloriesView.swift */,
-				EB5AC8F52408E3C300FA2982 /* TrendsViewController.swift */,
-				EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */,
-				EB0E7C17240C336B00198C7E /* TrendsChartViewController.swift */,
-				EB07B50E24063F89002FBE11 /* Assets.xcassets */,
-				EB07B51024063F89002FBE11 /* LaunchScreen.storyboard */,
-				EB07B51324063F89002FBE11 /* Info.plist */,
-				EB07B50B24063F86002FBE11 /* CalorieTracker.xcdatamodeld */,
+				EB73F948240CB14F009665B3 /* Misc */,
+				EB73F949240CB16B009665B3 /* Models */,
+				EB73F94A240CB18B009665B3 /* Views */,
+				EB73F94B240CB1E3009665B3 /* Storyboards */,
+				EB73F94C240CB204009665B3 /* View Controllers */,
+				EB73F94D240CB21F009665B3 /* Resources */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -227,6 +229,79 @@
 			path = CalorieTrackerUITests;
 			sourceTree = "<group>";
 		};
+		EB73F948240CB14F009665B3 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				EB5AC8ED2408E06D00FA2982 /* Constants.swift */,
+				EB07B53B24079D1B002FBE11 /* Extensions.swift */,
+				EB475EF4240A300B00DCCA76 /* FoodDataSource.swift */,
+				EB73F94E240CD052009665B3 /* MockFoodDataSource.swift */,
+				EB5AC8F72408E3FE00FA2982 /* AlertsManager.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		EB73F949240CB16B009665B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB4880142408FD8A00D6419E /* Food+CoreDataClass.swift */,
+				EB07B53D24079D55002FBE11 /* PersistenceManager.swift */,
+				EB07B50B24063F86002FBE11 /* CalorieTracker.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB73F94A240CB18B009665B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB5AC8FB2408EB7D00FA2982 /* CircularView.swift */,
+				EB475EFA240A64F300DCCA76 /* CircularImageView.swift */,
+				EB475EFC240AF95200DCCA76 /* FoodTableViewCell.swift */,
+				EB475EFD240AF95200DCCA76 /* FoodTableViewCell.xib */,
+				EB5AC8EB2407BE4D00FA2982 /* LargeLabel.swift */,
+				EB0E7C11240B820C00198C7E /* SevenDayTrendCollectionViewCell.swift */,
+				EB0E7C13240B822000198C7E /* ThirdyDayTrendCollectionViewCell.swift */,
+				EB475F00240B13BE00DCCA76 /* TotalCaloriesView.swift */,
+				EB0E7C15240B99F600198C7E /* TrendCollectionViewCell.swift */,
+				EB5AC8F92408EB5B00FA2982 /* WhiteButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB73F94B240CB1E3009665B3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EB07B535240641F2002FBE11 /* Foods.storyboard */,
+				EB07B51024063F89002FBE11 /* LaunchScreen.storyboard */,
+				EB07B50824063F86002FBE11 /* Main.storyboard */,
+				EB07B53724064205002FBE11 /* Today.storyboard */,
+				EB07B53924064213002FBE11 /* Trends.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EB73F94C240CB204009665B3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB475EF6240A4B7300DCCA76 /* BaseViewController.swift */,
+				EB5AC8EF2408E0E300FA2982 /* FoodsViewController.swift */,
+				EB5AC8F12408E2A100FA2982 /* NewFoodViewController.swift */,
+				EB5AC8F32408E3B200FA2982 /* TodayViewController.swift */,
+				EB5AC8F52408E3C300FA2982 /* TrendsViewController.swift */,
+				EB0E7C17240C336B00198C7E /* TrendsChartViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EB73F94D240CB21F009665B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB07B50E24063F89002FBE11 /* Assets.xcassets */,
+				EB07B51324063F89002FBE11 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FBE8D79E4168FEAD8CF1FD15 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +312,6 @@
 				F50CD0EE342AF44B946402F5 /* Pods-CalorieTrackerTests.debug.xcconfig */,
 				737DBCB8C7BB8B8C518B1105 /* Pods-CalorieTrackerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -371,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB73F95A240CF359009665B3 /* FoodTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +567,7 @@
 				EB5AC8F82408E3FE00FA2982 /* AlertsManager.swift in Sources */,
 				EB5AC8F42408E3B200FA2982 /* TodayViewController.swift in Sources */,
 				EB5AC8F02408E0E300FA2982 /* FoodsViewController.swift in Sources */,
+				EB73F94F240CD052009665B3 /* MockFoodDataSource.swift in Sources */,
 				EB5AC8EC2407BE4D00FA2982 /* LargeLabel.swift in Sources */,
 				EB07B50D24063F86002FBE11 /* CalorieTracker.xcdatamodeld in Sources */,
 				EB475EF5240A300B00DCCA76 /* FoodDataSource.swift in Sources */,
@@ -522,7 +598,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB73F959240CF359009665B3 /* FoodTableViewCell.swift in Sources */,
+				EB73F95E240CF359009665B3 /* TotalCaloriesView.swift in Sources */,
+				EB73F960240CF359009665B3 /* WhiteButton.swift in Sources */,
+				EB73F962240CF363009665B3 /* FoodsViewController.swift in Sources */,
+				EB73F957240CF359009665B3 /* CircularView.swift in Sources */,
+				EB73F95B240CF359009665B3 /* LargeLabel.swift in Sources */,
+				EB73F961240CF363009665B3 /* BaseViewController.swift in Sources */,
+				EB73F963240CF363009665B3 /* NewFoodViewController.swift in Sources */,
+				EB73F964240CF363009665B3 /* TodayViewController.swift in Sources */,
+				EB73F953240CF33E009665B3 /* Extensions.swift in Sources */,
+				EB73F950240CF203009665B3 /* MockFoodDataSource.swift in Sources */,
+				EB73F966240CF363009665B3 /* TrendsChartViewController.swift in Sources */,
+				EB73F95C240CF359009665B3 /* SevenDayTrendCollectionViewCell.swift in Sources */,
+				EB73F955240CF34A009665B3 /* Food+CoreDataClass.swift in Sources */,
+				EB73F967240CF3BC009665B3 /* CalorieTracker.xcdatamodeld in Sources */,
+				EB73F956240CF34D009665B3 /* PersistenceManager.swift in Sources */,
+				EB73F958240CF359009665B3 /* CircularImageView.swift in Sources */,
+				EB73F954240CF347009665B3 /* AlertsManager.swift in Sources */,
 				EB07B52824063F8A002FBE11 /* CalorieTrackerUITests.swift in Sources */,
+				EB73F95F240CF359009665B3 /* TrendCollectionViewCell.swift in Sources */,
+				EB73F951240CF30D009665B3 /* FoodDataSource.swift in Sources */,
+				EB73F952240CF33A009665B3 /* Constants.swift in Sources */,
+				EB73F965240CF363009665B3 /* TrendsViewController.swift in Sources */,
+				EB73F95D240CF359009665B3 /* ThirdyDayTrendCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +781,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X85PLZ26L;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = CalorieTracker/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -702,7 +801,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X85PLZ26L;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = CalorieTracker/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

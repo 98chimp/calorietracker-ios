@@ -202,3 +202,42 @@ extension FoodsViewController: UITableViewDelegate {
         selectedFoods.removeAll(where: { $0 == deselectedFood })
     }
 }
+
+// MARK: - Generate mock data on-demand triggered by shake gesture
+extension FoodsViewController {
+
+    private(set) var createdMockData: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "created mock data")
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: "created mock data")
+        }
+    }
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            if createdMockData {
+                let alert = AlertsManager.destroyMockDataAlert
+                alert.addAction(withTitle: "DELETE", style: .destructive) { [weak self] in
+                    MockFoodDataSource.sharedMock.destroyMockData()
+                    self?.createdMockData = false
+                }
+                alert.show()
+            }
+            else {
+                let alert = AlertsManager.createMockDataAlert
+                alert.addAction(withTitle: "ADD", style: .default) { [weak self] in
+                    MockFoodDataSource().createMockData()
+                    self?.createdMockData = true
+                }
+                alert.show()
+            }
+        }
+    }
+}
+

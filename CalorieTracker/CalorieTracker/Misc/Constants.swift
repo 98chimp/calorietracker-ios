@@ -12,6 +12,8 @@ struct Constant {
     struct Alert {
         struct Title {
             static let attention = "You are about to permanently delete a food from your list"
+            static let createMockData = "Would you like to add some mock data to the app?"
+            static let destroyMockData = "Would you like DELETE all the mock data from the app?"
             
             struct Action {
                 static let cancel = "Cancel"

@@ -6,11 +6,11 @@
 //  Copyright © 2020 98%Chimp. All rights reserved.
 //
 
-import CoreData
+import Foundation
 
 typealias TrendPoint = (date: Date, calories: Double)
 
-final class FoodDataSource {
+class FoodDataSource {
     
     static var shared = FoodDataSource()
     
@@ -98,7 +98,7 @@ final class FoodDataSource {
     }
     
     func createNewFoodItem(name: String, calories: Double, imageData: Data) {
-        guard let entity = NSEntityDescription.entity(forEntityName: Constant.Persistence.entityName, in: PersistenceManager.shared.conetext) else { return }
+        guard let entity = PersistenceManager.shared.entity else { return }
         let food = Food(entity: entity, insertInto: PersistenceManager.shared.conetext)
         food.name = name
         food.calories = calories
