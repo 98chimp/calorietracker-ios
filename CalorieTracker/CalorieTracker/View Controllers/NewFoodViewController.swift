@@ -10,6 +10,7 @@ import UIKit
 
 class NewFoodViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var imageContainerView: CircularView!
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var addButton: WhiteButton!
@@ -17,6 +18,7 @@ class NewFoodViewController: UIViewController {
     @IBOutlet weak var foodCaloriesTextField: UITextField!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
+    // MARK: - Properties
     var newFood: Food?
     private let imagePicker = UIImagePickerController()
     private var selectedImage: UIImage? {
@@ -26,11 +28,13 @@ class NewFoodViewController: UIViewController {
         }
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    // MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss()
     }
@@ -45,11 +49,16 @@ class NewFoodViewController: UIViewController {
                 food.calories = foodCalories
                 food.imageData = imageData
                 PersistenceManager.shared.saveContext()
+                dismiss()
+            }
+            else if !FoodDataSource.shared.allFoods.compactMap({ $0.name }).contains({ foodName }()) {
+                    FoodDataSource.shared.createNewFoodItem(name: foodName, calories: foodCalories, imageData: imageData)
+                dismiss()
+
             }
             else {
-                FoodDataSource.shared.createNewFoodItem(name: foodName, calories: foodCalories, imageData: imageData)
+                AlertsManager.duplicateNameAlert.show()
             }
-            dismiss()
         }
         else {
             showInputFeedback()
@@ -84,6 +93,7 @@ class NewFoodViewController: UIViewController {
         dismissKeyboard()
     }
     
+    // MARK: - Helpers
     private func configure() {
         tapGestureRecognizer.isEnabled = false
         foodNameTextField.delegate = self

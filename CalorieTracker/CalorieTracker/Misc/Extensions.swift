@@ -68,6 +68,10 @@ extension UIAlertController {
     func addCancelAction() {
         addAction(UIAlertAction(title: Constant.Alert.Title.Action.cancel, style: .cancel, handler: nil))
     }
+    
+    func addOkayAction() {
+        addAction(UIAlertAction(title: Constant.Alert.Title.Action.ok, style: .cancel, handler: nil))
+    }
 }
 
 extension Date {

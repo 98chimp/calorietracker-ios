@@ -38,4 +38,10 @@ struct AlertsManager {
         alert.addCancelAction()
         return alert
     }
+    
+    static var duplicateNameAlert: UIAlertController {
+        let alert = UIAlertController(title: Constant.Alert.Title.duplicateEntry, message: Constant.Alert.Message.changeFoodName, preferredStyle: .alert)
+        alert.addOkayAction()
+        return alert
+    }
 }
