@@ -76,4 +76,7 @@ Then **RUN tests** (**⌘-U**) on your device or simulator, sit back and watch t
 ## Next Steps
 - Modify the model layer to allow multiple entries of the same food item per day.
 - Optimize the layout for iPad screens.
-- Add unit and UI test cases to improve code coverage. 
+- Add unit and UI test cases to improve code coverage.
+
+## Update
+A bug that allowed multiple food items with the same _name_ be entered into the data base was discovered and fixed.
