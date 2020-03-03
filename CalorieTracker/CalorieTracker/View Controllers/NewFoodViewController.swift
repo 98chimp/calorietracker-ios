@@ -52,9 +52,8 @@ class NewFoodViewController: UIViewController {
                 dismiss()
             }
             else if !FoodDataSource.shared.allFoods.compactMap({ $0.name }).contains({ foodName }()) {
-                    FoodDataSource.shared.createNewFoodItem(name: foodName, calories: foodCalories, imageData: imageData)
+                FoodDataSource.shared.createNewFoodItem(name: foodName, calories: foodCalories, imageData: imageData)
                 dismiss()
-
             }
             else {
                 AlertsManager.duplicateNameAlert.show()
