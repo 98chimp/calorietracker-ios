@@ -79,11 +79,9 @@ class FoodDataSource {
     func allFoods(for date: Date) -> [Food] {
         var foods = [Food]()
         allFoods.forEach({
-            if !$0.consumptionDates.isEmpty {
-                for consumptionDate in $0.consumptionDates {
-                    if Calendar.current.isDate(consumptionDate, equalTo: date, toGranularity: .day) {
-                        foods.append($0)
-                    }
+            for consumptionDate in $0.consumptionDates {
+                if Calendar.current.isDate(consumptionDate, equalTo: date, toGranularity: .day) {
+                    foods.append($0)
                 }
             }
         })
