@@ -21,6 +21,11 @@ class CircularView: UIView {
         configureView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureView()
+    }
+    
     private func configureView() {
         layer.borderWidth = 1.0
         layer.borderColor = UIColor.coreGray.cgColor
