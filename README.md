@@ -56,15 +56,15 @@ Ample time was dedicated to visual design of the app a fully clickable prototype
 # UI Testing Details
 A number of UI test cases were added to provide some automated testing of the app using mock data. The test covers ~60% of the code and is by no means exhaustive. However, to see the automated testing in action, follow these steps while **NOT** running the app on Xccode:
 1. Delete any mock data from the app
-   - Tap on the home screen (My Foods)
-   - Shake the device (or simulate shake gesture)
-   - Select **Delete**
+   - Tap on the home screen (**My Foods**)
+   - Shake the device (or simulate shake gesture (**^⌘Z**))
+   - Select **DELETE**
 2. Add a fresh batch of mock data
-   - Tap on the home screen (My Foods)
-   - Shake the device (or simulate shake gesture)
+   - Tap on the home screen (**My Foods**)
+   - Shake the device (or simulate shake gesture (**^⌘Z**))
    - Tap **ADD**
 
-Then **RUN tests** (**⌘-U**) on your device or simulator, sit back and watch the automation in action!
+Then **RUN tests** (**⌘U**) on your device or simulator, sit back and watch the automation in action!
 
 ## Known Issues:
 - The app is currently designed such that each food item can be added to today's list *only* once. This limitation is surpassed during mock data generation.
@@ -79,6 +79,6 @@ Then **RUN tests** (**⌘-U**) on your device or simulator, sit back and watch t
 - Add unit and UI test cases to improve code coverage.
 
 ## Update
-- A bug that allowed multiple food items with the same _name_ be entered into the data base was discovered and fixed.
+- A bug that allowed multiple food items with the same _name_ be entered into the database was discovered and fixed.
 - The storyboard bug that improperly cropped the image view on the **Add New Food** screen is now fixed.
 - A new issue was found and fixed where the empty state label was slightly misplaced in landscape orientation. (... because the work of an engineer is never completely done!) 
