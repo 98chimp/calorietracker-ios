@@ -81,3 +81,4 @@ Then **RUN tests** (**⌘-U**) on your device or simulator, sit back and watch t
 ## Update
 - A bug that allowed multiple food items with the same _name_ be entered into the data base was discovered and fixed.
 - The storyboard bug that improperly cropped the image view on the **Add New Food** screen is now fixed.
+- A new issue was found and fixed where the empty state label was slightly misplaced in landscape orientation. (... because the work of an engineer is never completely done!) 

@@ -26,7 +26,15 @@ extension FoodRemovable {
 
 class BaseViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet var emptyStateLabel: LargeLabel!
+    @IBOutlet weak var topLabelConstraint: NSLayoutConstraint?
+    @IBOutlet weak var bottomLabelConstraint: NSLayoutConstraint?
+    @IBOutlet weak var leadingLabelConstraint: NSLayoutConstraint?
+    @IBOutlet weak var trailingLabelConstraint: NSLayoutConstraint?
+    
     // MARK: - Properties
+    private var constraints = [NSLayoutConstraint?]()
     var displayMode = DisplayMode.presenting
     var selectedIndexPath = IndexPath()
     var foods: [Food] {
@@ -36,9 +44,6 @@ class BaseViewController: UIViewController {
         return [TrendPoint]()
     }
     
-    // MARK: - Outlets
-    @IBOutlet var emptyStateLabel: LargeLabel!
-
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +78,7 @@ class BaseViewController: UIViewController {
     }
 
     func configureView() {
-        // implement in subclass
+        constraints = [topLabelConstraint, bottomLabelConstraint, leadingLabelConstraint, trailingLabelConstraint]
     }
 
     func dismiss() {
@@ -83,10 +88,7 @@ class BaseViewController: UIViewController {
     func addEmptyStateLabel() {
         emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(emptyStateLabel)
-        NSLayoutConstraint.activate(
-            [emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-             emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)]
-        )
+        constraints.forEach({ $0?.isActive = true })
     }
     
     func removeEmptyStateLabel() {
